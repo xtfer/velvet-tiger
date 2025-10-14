@@ -55,17 +55,23 @@ A clean, minimal 1-page website for Velvet Labs - a technology studio and ventur
    npm run build
    ```
 
-4. **Start development mode (with CSS watching)**
+4. **Start development server**
    ```bash
-   # Terminal 1: Start CSS watcher
    npm run dev
-   
-   # Terminal 2: Start local server
-   python3 -m http.server 8000
+   # This will:
+   # 1. Build CSS once
+   # 2. Start CSS file watching
+   # 3. Start live-server at http://localhost:8080
+   # 4. Automatically open your browser
    ```
 
 5. **View the site**
-   Open your browser to `http://localhost:8000`
+   The site will automatically open at `http://localhost:8080`
+   
+   **Alternative quick start:**
+   ```bash
+   npm start  # Same as npm run dev
+   ```
 
 ### Project Structure
 
@@ -88,9 +94,18 @@ velvet/
 ### NPM Scripts
 
 ```bash
-npm run build       # Build CSS for production (minified)
-npm run dev         # Watch CSS changes during development
-npm run build-css   # Same as dev (watch mode)
+# Development
+npm run dev         # Start development server + CSS watching (http://localhost:8080)
+npm start           # Same as npm run dev
+npm run serve       # Start server only (no CSS watching)
+
+# CSS Management  
+npm run css:watch   # Watch CSS changes only
+npm run css:build   # Build CSS once (minified)
+
+# Production
+npm run build       # Build CSS for production
+npm run preview     # Build CSS + start server for testing
 ```
 
 ## 🌐 Deployment
@@ -248,10 +263,18 @@ Key sections to customize:
 
 ### Development Workflow
 
-1. **CSS Changes**: Edit `src/input.css` and run `npm run dev`
-2. **Live Reload**: CSS changes automatically compile
-3. **Production Build**: Run `npm run build` before deployment
-4. **HTML Changes**: Refresh browser to see updates
+1. **Start Development**: Run `npm run dev` (opens http://localhost:8080)
+2. **CSS Changes**: Edit `src/input.css` - auto-compiles and reloads
+3. **HTML/JS Changes**: Save files - browser auto-reloads
+4. **Production Build**: Run `npm run build` before deployment
+
+### Development Server Features
+
+- **Auto-reload**: Browser refreshes when files change
+- **CSS watching**: Tailwind recompiles on file changes  
+- **Clear URL**: Always serves at `http://localhost:8080`
+- **Auto-open**: Browser opens automatically on start
+- **Error handling**: Shows compilation errors clearly
 
 ### Browser Compatibility
 

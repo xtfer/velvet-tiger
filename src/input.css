@@ -7,63 +7,18 @@
 }
 
 #hero {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%), 
-                url("/images/efe-kurnaz-RnCPiXixooY-unsplash.jpg");
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
     @apply bg-cover bg-center bg-no-repeat bg-fixed relative;
-}
-
-#hero::before {
-    content: '';
-    @apply absolute top-0 left-0 right-0 bottom-0;
-    z-index: 1;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
-}
-
-#hero > * {
-    @apply relative;
-    z-index: 2;
-}
-
-/* Floating gradient orbs */
-.floating-orb {
-    @apply absolute rounded-full animate-float;
-    z-index: 1;
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(236, 72, 153, 0.15));
-    filter: blur(40px);
-}
-
-.floating-orb:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.floating-orb:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    top: 60%;
-    right: 15%;
-    animation-delay: -4s;
-}
-
-.floating-orb:nth-child(3) {
-    width: 150px;
-    height: 150px;
-    top: 80%;
-    left: 60%;
-    animation-delay: -2s;
 }
 
 /* Custom component classes using @apply */
 @layer components {
     .btn-primary {
-        @apply bg-gradient-sunset text-white px-8 py-3 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium;
+        @apply bg-gradient-sunset text-white px-8 py-3 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
     }
 
     .btn-secondary {
-        @apply border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-sunset-400 hover:scale-105 transition-all duration-300 font-medium;
+        @apply border-2 border-white text-gray-700 bg-white px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-sunset-400 hover:scale-105 transition-all duration-300 font-medium;
     }
 
     .card-hover {
@@ -80,5 +35,9 @@
 
     .form-input {
         @apply block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunset-500 focus:border-sunset-500 transition-all bg-white/90 backdrop-blur-sm;
+    }
+
+    .pill {
+        @apply px-3 py-1 bg-gradient-sunset text-white text-sm rounded-full
     }
 }
