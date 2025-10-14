@@ -74,12 +74,8 @@
                     Velvet Tiger is a technology studio and venture foundry turning ambitious ideas into scalable products across healthcare, cloud infrastructure, and frontier technology.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#portfolio" class="btn-primary">
-                        Explore Our Work
-                    </a>
-                    <a href="#contact" class="btn-secondary">
-                        Let's Talk
-                    </a>
+                    <cta-button href="#portfolio" variant="primary">Explore Our Work</cta-button>
+                    <cta-button href="#contact" variant="secondary">Let's Talk</cta-button>
                 </div>
             </div>
         </section>
@@ -90,7 +86,7 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Floating gradient orbs -->
                 <div class="prose prose-neutral lg:prose-lg mx-auto text-center animate-fade-up">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-gradient mb-8">About Velvet Tiger</h2>
+                    <section-header title="About Velvet Labs"></section-header>
                     <p class="text-lg text-gray-600 leading-relaxed">
                         Velvet Tiger is the umbrella for a portfolio of innovative technology ventures. We combine deep technical expertise with pragmatic innovation to build impactful software companies — from clinical imaging platforms and AI infrastructure to experimental consumer apps.
                     </p>
@@ -101,12 +97,10 @@
         <!-- Capabilities Section -->
         <section id="capabilities" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-gradient mb-4">What We Do</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Our expertise spans the full spectrum of technology innovation and company building
-                    </p>
-                </div>
+                <section-header 
+                    title="What We Do" 
+                    subtitle="Our expertise spans the full spectrum of technology innovation and company building">
+                </section-header>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Venture Studio -->
@@ -167,42 +161,16 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                    <!-- App Development -->
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-900">App Development</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Full-stack application development from MVP to enterprise scale. We build modern, secure, and scalable solutions using cutting-edge technologies.
-                        </p>
-                        <ul class="text-gray-600 space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Web applications (React, Laravel, Node.js)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Mobile apps (React Native, Progressive Web Apps)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>API development and integration</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Database design and optimization</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>DevOps and deployment automation</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <service-card 
+                        title="App Development"
+                        icon="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        description="Full-stack application development from MVP to enterprise scale. We build modern, secure, and scalable solutions using cutting-edge technologies.">
+                        <service-item>Web applications (React, Laravel, Node.js)</service-item>
+                        <service-item>Mobile apps (React Native, Progressive Web Apps)</service-item>
+                        <service-item>API development and integration</service-item>
+                        <service-item>Database design and optimization</service-item>
+                        <service-item>DevOps and deployment automation</service-item>
+                    </service-card>
 
                     <!-- Cloud Strategy -->
                     <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
@@ -478,23 +446,9 @@
                     <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
                         <input type="hidden" name="_subject" value="New contact from Velvet Tiger site">
                         
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
-                            <input type="text" id="name" name="name" required 
-                                   class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all">
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                            <input type="email" id="email" name="email" required 
-                                   class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all">
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                            <textarea id="message" name="message" rows="6" required 
-                                      class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all"></textarea>
-                        </div>
+                        <form-input label="Name" type="text" name="name" required></form-input>
+                        <form-input label="Email" type="email" name="email" required></form-input>
+                        <form-input label="Message" type="textarea" name="message" rows="6" required></form-input>
                         
                         <div class="text-center">
                             <button type="submit" class="btn-primary">
@@ -520,6 +474,9 @@
         </div>
     </footer>
 
+    <!-- Web Components -->
+    <script src="components.js"></script>
+    
     <!-- JavaScript -->
     <script defer src="main.js"></script>
 </body>

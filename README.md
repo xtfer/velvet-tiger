@@ -22,6 +22,7 @@ A clean, minimal 1-page website for Velvet Labs - a technology studio and ventur
 - **Tailwind CSS v3**: Utility-first CSS framework with custom build process
 - **Custom CSS**: @apply utilities and component classes
 - **Vanilla JavaScript**: No frameworks, lightweight and fast
+- **Web Components**: Custom elements for reusable UI components
 - **Inter Font**: Modern, readable typography from Google Fonts
 - **Heroicons**: Clean, minimal SVG icons
 - **Formspree**: Contact form handling service
@@ -83,6 +84,7 @@ velvet/
 │   └── style.css           # Compiled CSS output
 ├── images/
 │   └── *.jpg               # Background images
+├── components.js           # Web Components (Custom Elements)
 ├── index.html              # Main HTML file
 ├── main.js                 # JavaScript for interactivity
 ├── tailwind.config.js      # Tailwind configuration
@@ -202,6 +204,41 @@ The project includes reusable @apply utilities in `src/input.css`:
 .form-input         // Styled form inputs
 .card-hover         // Hover animations
 .nav-link-active    // Navigation link styles
+.icon-block         // Gradient icon containers
+.card               // Portfolio/service cards
+.pill               // Technology tags
+```
+
+### Web Components
+
+The site uses custom web components for reusable UI elements:
+
+```html
+<!-- CTA Buttons -->
+<cta-button href="#portfolio" variant="primary">Explore Our Work</cta-button>
+<cta-button href="#contact" variant="secondary">Let's Talk</cta-button>
+
+<!-- Section Headers -->
+<section-header title="About Us" subtitle="Optional description"></section-header>
+
+<!-- Service Cards -->
+<service-card title="App Development" icon="..." description="...">
+    <service-item>Web applications</service-item>
+    <service-item>Mobile apps</service-item>
+</service-card>
+
+<!-- Form Inputs -->
+<form-input label="Name" type="text" name="name" required></form-input>
+<form-input label="Message" type="textarea" name="message" rows="6"></form-input>
+
+<!-- Portfolio Cards -->
+<portfolio-card title="Project" description="..." link="#contact">
+    <tech-tag>React</tech-tag>
+    <tech-tag>Node.js</tech-tag>
+</portfolio-card>
+
+<!-- Capability Cards -->
+<capability-card title="Engineering" icon="..." description="..."></capability-card>
 ```
 
 ### Typography
