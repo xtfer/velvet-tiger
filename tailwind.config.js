@@ -7,18 +7,18 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        sunset: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
-        },
+          sunset: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#d4580c',
+              700: '#a0456b',
+              800: '#7c2d84',
+              900: '#4a1a5c',
+          },
         rose: {
           50: '#fdf2f8',
           100: '#fce7f3',
@@ -33,9 +33,9 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-sunset': 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)',
-        'gradient-sunset-soft': 'linear-gradient(135deg, #fed7aa 0%, #fbcfe8 100%)',
-        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+          'gradient-sunset': 'linear-gradient(135deg, #fb923c 0%, #db2777 100%)',
+          'gradient-sunset-soft': 'linear-gradient(135deg, #fed7aa 0%, #fbcfe8 100%)',
+          'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in-out',
