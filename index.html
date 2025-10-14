@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Labs – Technology Studio & Venture Foundry</title>
+    <meta name="description" content="Velvet Labs is a technology studio and venture foundry turning ambitious ideas into scalable products across healthcare, cloud infrastructure, and frontier technology.">
+    <meta name="keywords" content="technology studio, venture foundry, healthcare technology, cloud infrastructure, AI, software development, innovation">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Christopher Skene">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velvetlabs.dev">
+    <meta property="og:title" content="Velvet Labs – Technology Studio & Venture Foundry">
+    <meta property="og:description" content="Velvet Labs is a technology studio and venture foundry turning ambitious ideas into scalable products across healthcare, cloud infrastructure, and frontier technology.">
+    <meta property="og:image" content="https://velvetlabs.dev/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://velvetlabs.dev">
+    <meta property="twitter:title" content="Velvet Labs – Technology Studio & Venture Foundry">
+    <meta property="twitter:description" content="Velvet Labs is a technology studio and venture foundry turning ambitious ideas into scalable products across healthcare, cloud infrastructure, and frontier technology.">
+    <meta property="twitter:image" content="https://velvetlabs.dev/og-image.jpg">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <!-- Heroicons -->
+    <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js" type="module"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'fade-up': 'fadeUp 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-semibold text-gray-900">Velvet Labs</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#capabilities" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Capabilities</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Portfolio</a>
+                        <a href="#contact" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4 animate-fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-semibold text-gray-900 mb-6 leading-tight">
+                    Building the Future,<br>One Venture at a Time
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                    Velvet Labs is a technology studio and venture foundry turning ambitious ideas into scalable products across healthcare, cloud infrastructure, and frontier technology.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#portfolio" class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium">
+                        Explore Our Work
+                    </a>
+                    <a href="#contact" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="prose prose-neutral lg:prose-lg mx-auto text-center animate-fade-up">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-8">About Velvet Labs</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Velvet Labs is the umbrella for a portfolio of ventures led by Christopher Skene. We combine deep technical expertise with pragmatic innovation to build impactful software companies — from clinical imaging platforms and AI infrastructure to experimental consumer apps.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">What We Do</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Our expertise spans the full spectrum of technology innovation and company building
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Venture Studio -->
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Venture Studio</h3>
+                        <p class="text-gray-600">Incubating and launching new companies with systematic approach to innovation and market validation.</p>
+                    </div>
+
+                    <!-- Engineering -->
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Engineering</h3>
+                        <p class="text-gray-600">Building secure, scalable platforms using modern technologies and architectural best practices.</p>
+                    </div>
+
+                    <!-- AI & Data -->
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">AI & Data</h3>
+                        <p class="text-gray-600">Deploying machine learning and data solutions for regulated industries with focus on compliance and security.</p>
+                    </div>
+
+                    <!-- Strategy -->
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Strategy</h3>
+                        <p class="text-gray-600">Guiding products from concept to commercialisation with data-driven market insights and technical roadmaps.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Portfolio Highlights</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        A selection of innovative ventures spanning healthcare, infrastructure, and data security
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Aurabox -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="p-6 border-l-4 border-black">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Aurabox</h3>
+                            <p class="text-gray-600 mb-4">
+                                Medical imaging and patient data management platform built for healthcare providers with DICOM integration and clinical workflow automation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Laravel 11</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Livewire 3</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">DICOM</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Healthcare</span>
+                            </div>
+                            <a href="#contact" class="text-black hover:text-gray-700 font-medium text-sm">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Runbeam -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="p-6 border-l-4 border-black">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Runbeam</h3>
+                            <p class="text-gray-600 mb-4">
+                                High-performance proxy and configuration management platform built in Rust for secure, scalable network infrastructure and service orchestration.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Rust</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Tokio</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Infrastructure</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Security</span>
+                            </div>
+                            <a href="#contact" class="text-black hover:text-gray-700 font-medium text-sm">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <!-- JMIX -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow animate-fade-up">
+                        <div class="p-6 border-l-4 border-black">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">JMIX</h3>
+                            <p class="text-gray-600 mb-4">
+                                Secure medical data interchange format with AES-256-GCM encryption, Ed25519 signatures, and comprehensive validation for healthcare data exchange.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Rust</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Cryptography</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">JSON Schema</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Healthcare</span>
+                            </div>
+                            <a href="#contact" class="text-black hover:text-gray-700 font-medium text-sm">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Let's Build Something Amazing</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        We partner with innovators, clinicians, and industry leaders to bring bold ideas to life. 
+                        Ready to discuss your next venture?
+                    </p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New contact from Velvet Labs site">
+                        
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="6" required 
+                                      class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-all"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" 
+                                    class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Form status messages -->
+                    <div id="form-messages" class="mt-4 text-center hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 Velvet Labs. Building the future, one venture at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script defer src="main.js"></script>
+</body>
+</html>
