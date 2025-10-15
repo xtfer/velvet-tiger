@@ -65,7 +65,7 @@ class ServiceItem extends HTMLElement {
         const text = this.textContent;
         this.innerHTML = `
             <li class="flex items-start">
-                <span class="text-sunset-500 mr-2 mt-1">•</span>
+                <span class="text-sunset-500 mr-2">•</span>
                 <span>${text}</span>
             </li>
         `;
