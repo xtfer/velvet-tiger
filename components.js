@@ -1,9 +1,9 @@
 // Velvet Labs - Web Components
 // Custom elements for reusable UI components
-
 class ServiceCard extends HTMLElement {
     constructor() {
         super();
+        this.originalContent = null;
     }
 
     static get observedAttributes() {
@@ -11,18 +11,29 @@ class ServiceCard extends HTMLElement {
     }
 
     connectedCallback() {
+        // Wait for children to render, then capture their innerHTML
+        if (!this.originalContent) {
+            requestAnimationFrame(() => {
+                this.originalContent = Array.from(this.children)
+                    .map(child => child.innerHTML) // Get the rendered content, not the element
+                    .join('');
+                this.render();
+            });
+            return;
+        }
         this.render();
     }
 
     attributeChangedCallback() {
-        this.render();
+        if (this.originalContent !== null) {
+            this.render();
+        }
     }
 
     render() {
         const title = this.getAttribute('title') || '';
         const icon = this.getAttribute('icon') || '';
         const description = this.getAttribute('description') || '';
-        const items = Array.from(this.children).map(child => child.outerHTML).join('');
 
         this.innerHTML = `
             <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
@@ -38,13 +49,12 @@ class ServiceCard extends HTMLElement {
                     ${description}
                 </p>
                 <ul class="text-gray-600 space-y-2">
-                    ${items}
+                    ${this.originalContent || ''}
                 </ul>
             </div>
         `;
     }
 }
-
 // Service List Item Component
 class ServiceItem extends HTMLElement {
     constructor() {
