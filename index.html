@@ -62,9 +62,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="py-40 flex items-center justify-center text-center px-4 animate-fade-in relative overflow-hidden">
-            <img src="/images/efe-kurnaz-RnCPiXixooY-unsplash.jpg" alt="Hero Image" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div> <!-- Optional: dark overlay for better text contrast -->
+        <section id="hero" class="py-40 flex items-center justify-center text-center px-4 animate-fade-in relative overflow-hidden bg-gray-900">
+            <img src="/images/efe-kurnaz-RnCPiXixooY-unsplash.jpg" alt="Hero Image" class="absolute inset-0 w-full h-full object-cover z-0">
+            <div class="absolute inset-0 bg-black/20 z-0"></div>
 
             <div class="max-w-4xl mx-auto relative z-10">
                 <h1 class="text-4xl md:text-6xl font-semibold text-white mb-6 leading-tight">
@@ -153,12 +153,10 @@
         <!-- How We Can Help You Section -->
         <section id="services" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">How We Can Help You</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                        From technical strategy to hands-on development, we partner with forward-thinking organizations to solve complex challenges and accelerate growth through technology.
-                    </p>
-                </div>
+                <section-header
+                        title="How We Can Help You"
+                        subtitle="From technical strategy to hands-on development, we partner with forward-thinking organizations to solve complex challenges and accelerate growth through technology.">
+                </section-header>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                     <service-card 
@@ -172,116 +170,38 @@
                         <service-item>DevOps and deployment automation</service-item>
                     </service-card>
 
-                    <!-- Cloud Strategy -->
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.002 4.002 0 003 15z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-900">Cloud Strategy</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Strategic cloud architecture and migration planning to optimize performance, reduce costs, and improve scalability for your growing business.
-                        </p>
-                        <ul class="text-gray-600 space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Cloud migration and modernization (AWS, GCP, Azure)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Infrastructure as Code (Terraform, CloudFormation)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Containerization and orchestration (Docker, Kubernetes)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Serverless architecture and microservices</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Security and compliance frameworks</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <service-card 
+                        title="Cloud Strategy"
+                        icon="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.002 4.002 0 003 15z"
+                        description="Strategic cloud architecture and migration planning to optimize performance, reduce costs, and improve scalability for your growing business.">
+                        <service-item>Cloud migration and modernization (AWS, GCP, Azure)</service-item>
+                        <service-item>Infrastructure as Code (Terraform, CloudFormation)</service-item>
+                        <service-item>Containerization and orchestration (Docker, Kubernetes)</service-item>
+                        <service-item>Serverless architecture and microservices</service-item>
+                        <service-item>Security and compliance frameworks</service-item>
+                    </service-card>
 
-                    <!-- Health Data -->
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-900">Health Data Solutions</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Specialized expertise in healthcare technology, HIPAA compliance, and medical data integration for hospitals, clinics, and health tech startups.
-                        </p>
-                        <ul class="text-gray-600 space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>DICOM and medical imaging systems</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>HL7 FHIR integration and interoperability</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>HIPAA compliance and security auditing</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Electronic Health Record (EHR) systems</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Clinical workflow automation</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <service-card 
+                        title="Health Data Solutions"
+                        icon="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        description="Specialized expertise in healthcare technology, HIPAA compliance, and medical data integration for hospitals, clinics, and health tech startups.">
+                        <service-item>DICOM and medical imaging systems</service-item>
+                        <service-item>HL7 FHIR integration and interoperability</service-item>
+                        <service-item>HIPAA compliance and security auditing</service-item>
+                        <service-item>Electronic Health Record (EHR) systems</service-item>
+                        <service-item>Clinical workflow automation</service-item>
+                    </service-card>
 
-                    <!-- Startup Strategy -->
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-900">Startup Strategy & Management</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            End-to-end startup support from ideation to scale, combining technical expertise with business strategy to accelerate your path to market.
-                        </p>
-                        <ul class="text-gray-600 space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Product strategy and roadmap development</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Technical due diligence and architecture review</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Go-to-market strategy and execution</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Team building and organizational design</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                <span>Investor readiness and pitch preparation</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <service-card 
+                        title="Startup Strategy & Management"
+                        icon="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        description="End-to-end startup support from ideation to scale, combining technical expertise with business strategy to accelerate your path to market.">
+                        <service-item>Product strategy and roadmap development</service-item>
+                        <service-item>Technical due diligence and architecture review</service-item>
+                        <service-item>Go-to-market strategy and execution</service-item>
+                        <service-item>Team building and organizational design</service-item>
+                        <service-item>Investor readiness and pitch preparation</service-item>
+                    </service-card>
                 </div>
 
                 <!-- Fractional CTO - Featured Service -->
@@ -293,7 +213,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-3xl md:text-4xl font-semibold text-gray-900">Fractional CTO Services</h3>
+                            <h3 class="text-3xl md:text-4xl font-semibold text-gradient">Fractional CTO Services</h3>
                         </div>
                         <p class="text-xl text-gray-600 mb-8 leading-relaxed">
                             Get senior technical leadership without the full-time commitment. Perfect for startups, scale-ups, and enterprises needing strategic technology guidance.
@@ -302,45 +222,26 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-900 mb-3">Strategic Leadership</h4>
-                                <ul class="text-gray-600 space-y-2">
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Technology strategy and vision alignment</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Technical roadmap planning and execution</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Architecture decisions and technical debt management</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Board and investor technical reporting</span>
-                                    </li>
-                                </ul>
+                                <div class="text-gray-600 space-y-2">
+                                    <ul class="flex flex-col gap-2">
+                                        <service-item>Technology strategy and vision alignment</service-item>
+                                        <service-item>Technical roadmap planning and execution</service-item>
+                                        <service-item>Architecture decisions and technical debt management</service-item>
+                                        <service-item>Board and investor technical reporting</service-item>
+                                    </ul>
+
+                                </div>
                             </div>
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-900 mb-3">Team & Operations</h4>
-                                <ul class="text-gray-600 space-y-2">
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Engineering team leadership and mentoring</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Development process optimization</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Technical hiring and team scaling</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-sunset-500 mr-2 mt-1">•</span>
-                                        <span>Vendor evaluation and technology selection</span>
-                                    </li>
-                                </ul>
+                                <div class="text-gray-600 space-y-2">
+                                    <ul class="flex flex-col gap-2">
+                                        <service-item>Engineering team leadership and mentoring</service-item>
+                                        <service-item>Development process optimization</service-item>
+                                        <service-item>Technical hiring and team scaling</service-item>
+                                        <service-item>Vendor evaluation and technology selection</service-item>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -361,12 +262,10 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="py-20 bg-gradient-to-br from-gray-50 via-sunset-50/30 to-rose-50/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-gradient mb-4">Portfolio Highlights</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        A selection of innovative ventures spanning healthcare, infrastructure, and data security
-                    </p>
-                </div>
+                <section-header
+                        title="Portfolio Highlights"
+                        subtitle=" A selection of innovative ventures spanning healthcare, infrastructure, and data security">
+                </section-header>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Aurabox -->
@@ -434,16 +333,14 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-gradient mb-4">Let's Build Something Amazing</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        We partner with innovators, clinicians, and industry leaders to bring bold ideas to life. 
-                        Ready to discuss your next venture?
-                    </p>
-                </div>
+                <section-header
+                        title="Let's Build Something Amazing"
+                        subtitle=" We partner with innovators, clinicians, and industry leaders to bring bold ideas to life.
+                        Ready to discuss your next venture?">
+                </section-header>
 
                 <div class="max-w-2xl mx-auto">
-                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                    <form id="contact-form" action="https://formsubmit.co/velvettigerinvestments@gmail.com" method="POST" class="flex flex-col gap-4">
                         <input type="hidden" name="_subject" value="New contact from Velvet Tiger site">
                         
                         <form-input label="Name" type="text" name="name" required></form-input>
@@ -475,9 +372,9 @@
     </footer>
 
     <!-- Web Components -->
-    <script src="components.js"></script>
+    <script src="dist/components.js"></script>
     
     <!-- JavaScript -->
-    <script defer src="main.js"></script>
+    <script defer src="dist/main.js"></script>
 </body>
 </html>

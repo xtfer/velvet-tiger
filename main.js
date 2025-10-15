@@ -170,26 +170,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add subtle parallax effect to hero section (optional)
-    let ticking = false;
+    // let ticking = false;
     
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.getElementById('hero');
-        
-        if (heroSection && scrolled < window.innerHeight) {
-            const rate = scrolled * -0.5;
-            heroSection.style.transform = `translateY(${rate}px)`;
-        }
-        
-        ticking = false;
-    }
+    // function updateParallax() {
+    //     const scrolled = window.pageYOffset;
+    //     const heroSection = document.getElementById('hero');
+    //     
+    //     if (heroSection && scrolled < window.innerHeight) {
+    //         const rate = scrolled * -0.5;
+    //         heroSection.style.transform = `translateY(${rate}px)`;
+    //     }
+    //     
+    //     ticking = false;
+    // }
     
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    });
+    // window.addEventListener('scroll', () => {
+    //     if (!ticking) {
+    //         requestAnimationFrame(updateParallax);
+    //         ticking = true;
+    //     }
+    // });
 });
 
 // Add keyboard accessibility improvements

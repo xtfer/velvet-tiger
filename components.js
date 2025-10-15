@@ -1,7 +1,6 @@
 // Velvet Labs - Web Components
 // Custom elements for reusable UI components
 
-// Service Card Component
 class ServiceCard extends HTMLElement {
     constructor() {
         super();
@@ -211,7 +210,7 @@ class SectionHeader extends HTMLElement {
 
         this.innerHTML = `
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">${title}</h2>
+                <h2 class="text-3xl md:text-4xl font-semibold text-gradient mb-4">${title}</h2>
                 ${subtitle ? `<p class="text-lg text-gray-600 max-w-3xl mx-auto">${subtitle}</p>` : ''}
             </div>
         `;

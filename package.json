@@ -4,12 +4,14 @@
   "description": "A clean, minimal 1-page website for Velvet Labs - a technology studio and venture foundry building innovative software companies across healthcare, cloud infrastructure, and frontier technology.",
   "main": "main.js",
   "scripts": {
-    "dev": "npm run css:build && concurrently \"npm run css:watch\" \"npm run serve\"",
+    "dev": "npm run css:build && concurrently \"npm run css:watch\" \"npm run js:watch\" \"npm run serve\"",
     "start": "npm run dev",
     "serve": "npx live-server --port=8080 --host=localhost --open=/ --wait=200",
-    "build": "npm run css:build",
+    "build": "npm run css:build && npm run js:build",
     "css:watch": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch",
     "css:build": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --minify",
+    "js:build": "npx esbuild components.js --bundle --minify --format=iife --outfile=dist/components.js && npx esbuild main.js --bundle --minify --format=iife --outfile=dist/main.js",
+    "js:watch": "concurrently \"npx esbuild components.js --bundle --format=iife --outfile=dist/components.js --watch\" \"npx esbuild main.js --bundle --format=iife --outfile=dist/main.js --watch\"",
     "preview": "npm run build && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "concurrently": "^9.2.1",
+    "esbuild": "^0.24.0",
     "live-server": "^1.2.2",
     "tailwindcss": "^3.4.18"
   }
