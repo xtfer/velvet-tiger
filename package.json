@@ -7,7 +7,7 @@
     "dev": "npm run css:build && concurrently \"npm run css:watch\" \"npm run js:watch\" \"npm run serve\"",
     "start": "npm run dev",
     "serve": "npx live-server --port=8080 --host=localhost --open=/ --wait=200",
-    "build": "npm run css:build && npm run js:build",
+    "build": "npm run css:build && npm run js:build && node scripts/build.mjs",
     "css:watch": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch",
     "css:build": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --minify",
     "js:build": "npx esbuild components.js --bundle --minify --format=iife --outfile=dist/components.js && npx esbuild main.js --bundle --minify --format=iife --outfile=dist/main.js",
