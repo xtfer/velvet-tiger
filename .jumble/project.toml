@@ -1,0 +1,49 @@
+[project]
+name = "velvet"
+description = "Single-page marketing site for Velvet Tiger built with Tailwind CSS, Web Components, and vanilla JavaScript."
+language = "javascript"
+version = "1.0.0"
+repository = "https://github.com/velvet-tiger/velvet" # update if different
+
+[commands]
+install = "npm install"
+dev = "npm run dev"
+start = "npm start"
+build = "npm run build"
+preview = "npm run preview"
+serve = "npm run serve"
+
+[entry_points]
+main = "index.html"
+components = "components.js"
+behavior = "main.js"
+styles = "src/input.css"
+build_script = "scripts/build.mjs"
+
+[dependencies]
+external = [
+  "tailwindcss",
+  "esbuild",
+  "concurrently",
+  "live-server"
+]
+
+[concepts.page_structure]
+files = ["index.html"]
+summary = "Single-page layout defining all sections (hero, about, capabilities, services, portfolio, people, contact)."
+
+[concepts.web_components]
+files = ["components.js"]
+summary = "Custom elements for service cards, portfolio cards, CTA buttons, section headers, form inputs, and feature lists."
+
+[concepts.page_behavior]
+files = ["main.js"]
+summary = "Smooth in-page navigation, contact form handling, scroll-based animations, and mobile navigation."
+
+[concepts.styling_pipeline]
+files = ["src/input.css", "tailwind.config.js"]
+summary = "Tailwind CSS configuration and custom utility/component classes compiled into dist/style.css."
+
+[concepts.build_and_deploy]
+files = ["scripts/build.mjs", "package.json", "dist/"]
+summary = "Build scripts bundling JS with esbuild, compiling Tailwind, and assembling static assets into dist/ for deployment."

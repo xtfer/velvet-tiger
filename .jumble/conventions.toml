@@ -1,0 +1,33 @@
+[conventions]
+static_site = """
+Velvet is a purely static single-page marketing site. All deployable artifacts live in the dist/ directory; treat dist/ as generated output only.
+"""
+
+web_components = """
+All reusable UI patterns are implemented as Web Components in components.js. Update or add components there, then use them declaratively in index.html.
+"""
+
+tailwind_usage = """
+Tailwind CSS classes are authored in src/input.css and compiled into dist/style.css. Do not edit dist/style.css directly; changes will be overwritten by the build.
+"""
+
+build_pipeline = """
+Use npm run dev for local development and npm run build for static builds. The scripts in package.json orchestrate Tailwind, esbuild, file watching, and the live-server dev server.
+"""
+
+html_single_entry = """
+index.html is the single entry point and contains all sections. There is no client-side routing; all navigation is via in-page anchors.
+"""
+
+[gotchas]
+no_tests = """
+There is currently no automated test suite configured. The npm test script is a placeholder that exits with an error.
+"""
+
+dist_is_generated = """
+Never hand-edit files in dist/. They are regenerated on every build or dev run and should not be committed as source of truth.
+"""
+
+asset_paths = """
+The build script rewrites asset paths when copying index.html into dist/. If you change script or stylesheet paths, ensure scripts/build.mjs remains consistent.
+"""
