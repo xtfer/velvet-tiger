@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .image {
-    @apply w-full;
+    @apply w-full max-h-16 object-contain;
 }
 
 #hero {
