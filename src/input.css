@@ -3,18 +3,17 @@
 @tailwind utilities;
 
 .image {
-    @apply w-full max-h-16 object-contain;
+    @apply max-h-full object-contain;
 }
 
 #hero {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-    @apply bg-cover bg-center bg-no-repeat bg-fixed relative;
+    @apply bg-sunset-50 bg-cover bg-center bg-no-repeat bg-fixed relative;
 }
 
 /* Custom component classes using @apply */
 @layer components {
     .btn-primary {
-        @apply bg-gradient-sunset text-white px-8 py-3 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
+        @apply bg-sunset-500 text-white px-8 py-3 rounded-lg hover:bg-sunset-600 hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
     }
 
     .btn-secondary {
@@ -26,7 +25,7 @@
     }
 
     .text-gradient {
-        @apply bg-gradient-to-r from-gray-900 to-sunset-600 bg-clip-text text-transparent hover:from-sunset-500 hover:to-rose-500 transition-all duration-300;
+        @apply text-sunset-600 hover:text-sunset-500 transition-all duration-300;
     }
 
     .nav-link-active {
@@ -36,20 +35,20 @@
     .form-input {
         @apply block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunset-500 focus:border-sunset-500 transition-all bg-white/90 backdrop-blur-sm;
     }
-    
+
     .icon-block {
-        @apply w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mb-4;
+        @apply w-12 h-12 bg-sunset-500 rounded-lg flex items-center justify-center mb-4;
     }
-    
+
     .card {
         @apply bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow animate-fade-up;
     }
-    
+
     .card-inner {
-        @apply p-6 border-l-4 border-sunset-500 h-full;
+        @apply p-6 border-l-4 border-sunset-500 h-full flex flex-col;
     }
-    
+
     .pill {
-        @apply px-3 py-1 bg-gradient-sunset text-white text-sm rounded-full;
+        @apply px-3 py-1 bg-sunset-500 text-white text-sm rounded-full;
     }
 }
