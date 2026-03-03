@@ -38,7 +38,7 @@ class ServiceCard extends HTMLElement {
         this.innerHTML = `
             <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-200/20 transition-all duration-300 animate-fade-up">
                 <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-sunset rounded-lg flex items-center justify-center mr-4">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${icon}"></path>
                         </svg>
@@ -65,7 +65,7 @@ class ServiceItem extends HTMLElement {
         const text = this.textContent;
         this.innerHTML = `
             <li class="flex items-start">
-                <span class="text-sunset-500 mr-2">•</span>
+                <span class="text-primary-500 mr-2">•</span>
                 <span>${text}</span>
             </li>
         `;
@@ -97,16 +97,16 @@ class PortfolioCard extends HTMLElement {
         const tags = Array.from(this.children).map(child => child.outerHTML).join('');
 
         this.innerHTML = `
-            <div class="bg-white/90 backdrop-blur-sm rounded-lg border border-shocking-200/50 overflow-hidden hover:shadow-xl hover:shadow-shocking-200/20 transition-all duration-300 animate-fade-up">
-                <div class="p-6 border-l-4 border-shocking-500">
-                    <h3 class="text-xl font-semibold text-shocking-800 mb-3">${title}</h3>
-                    <p class="text-shocking-700 mb-4">
+            <div class="bg-white/90 backdrop-blur-sm rounded-lg border border-secondary-200/50 overflow-hidden hover:shadow-xl hover:shadow-secondary-200/20 transition-all duration-300 animate-fade-up">
+                <div class="p-6 border-l-4 border-secondary-500">
+                    <h3 class="text-xl font-semibold text-secondary-800 mb-3">${title}</h3>
+                    <p class="text-secondary-700 mb-4">
                         ${description}
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${tags}
                     </div>
-                    <a href="${link}" class="text-shocking-600 hover:text-shocking-500 font-medium text-sm">Learn More →</a>
+                    <a href="${link}" class="text-secondary-600 hover:text-secondary-500 font-medium text-sm">Learn More →</a>
                 </div>
             </div>
         `;
@@ -122,7 +122,7 @@ class TechTag extends HTMLElement {
     connectedCallback() {
         const text = this.textContent;
         this.innerHTML = `
-            <span class="px-3 py-1 bg-shocking-100 text-shocking-700 text-sm rounded-full">${text}</span>
+            <span class="px-3 py-1 bg-secondary-100 text-secondary-700 text-sm rounded-full">${text}</span>
         `;
     }
 }
@@ -151,14 +151,14 @@ class CapabilityCard extends HTMLElement {
         const description = this.getAttribute('description') || '';
 
         this.innerHTML = `
-            <div class="bg-white/90 backdrop-blur-sm p-6 rounded-lg border border-shocking-200/50 hover:shadow-xl hover:shadow-shocking-200/20 transition-all duration-300 animate-fade-up">
-                <div class="w-12 h-12 bg-gradient-shocking rounded-lg flex items-center justify-center mb-4">
+            <div class="bg-white/90 backdrop-blur-sm p-6 rounded-lg border border-secondary-200/50 hover:shadow-xl hover:shadow-secondary-200/20 transition-all duration-300 animate-fade-up">
+                <div class="w-12 h-12 bg-gradient-secondary rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${icon}"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-shocking-800 mb-2">${title}</h3>
-                <p class="text-shocking-700">${description}</p>
+                <h3 class="text-xl font-semibold text-secondary-800 mb-2">${title}</h3>
+                <p class="text-secondary-700">${description}</p>
             </div>
         `;
     }
@@ -264,7 +264,7 @@ class FormInput extends HTMLElement {
 
         this.innerHTML = `
             <div>
-                <label for="${id}" class="block text-sm font-medium text-shocking-700 mb-2">
+                <label for="${id}" class="block text-sm font-medium text-secondary-700 mb-2">
                     ${label} ${required ? '*' : ''}
                 </label>
                 ${inputElement}
@@ -285,7 +285,7 @@ class FeatureList extends HTMLElement {
             const text = child.textContent;
             return `
                 <li class="flex items-start">
-                    <span class="text-sunset-500 mr-2 mt-1">•</span>
+                    <span class="text-primary-500 mr-2 mt-1">•</span>
                     <span>${text}</span>
                 </li>
             `;

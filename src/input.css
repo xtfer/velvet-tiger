@@ -7,17 +7,17 @@
 }
 
 #hero {
-    @apply bg-sunset-50 bg-cover bg-center bg-no-repeat bg-fixed relative;
+    @apply bg-primary-50 bg-cover bg-center bg-no-repeat bg-fixed relative;
 }
 
 /* Custom component classes using @apply */
 @layer components {
     .btn-primary {
-        @apply bg-sunset-500 text-white px-8 py-3 rounded-lg hover:bg-sunset-600 hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
+        @apply bg-primary-500 text-white px-8 py-3 rounded-lg hover:bg-primary-600 hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
     }
 
     .btn-secondary {
-        @apply border-2 border-white text-gray-700 bg-white px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-sunset-400 hover:scale-105 transition-all duration-300 font-medium;
+        @apply border-2 border-white text-gray-700 bg-white px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-primary-400 hover:scale-105 transition-all duration-300 font-medium;
     }
 
     .card-hover {
@@ -25,19 +25,19 @@
     }
 
     .text-gradient {
-        @apply text-sunset-600 hover:text-sunset-500 transition-all duration-300;
+        @apply text-primary-600 hover:text-primary-500 transition-all duration-300;
     }
 
     .nav-link-active {
-        @apply text-sunset-600 hover:text-sunset-500 px-3 py-2 text-sm font-medium transition-all duration-300 relative;
+        @apply text-primary-600 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-all duration-300 relative;
     }
 
     .form-input {
-        @apply block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunset-500 focus:border-sunset-500 transition-all bg-white/90 backdrop-blur-sm;
+        @apply block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all bg-white/90 backdrop-blur-sm;
     }
 
     .icon-block {
-        @apply w-12 h-12 bg-sunset-500 rounded-lg flex items-center justify-center mb-4;
+        @apply w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center mb-4;
     }
 
     .card {
@@ -45,10 +45,10 @@
     }
 
     .card-inner {
-        @apply p-6 border-l-4 border-sunset-500 h-full flex flex-col;
+        @apply p-6 border-l-4 border-primary-500 h-full flex flex-col;
     }
 
     .pill {
-        @apply px-3 py-1 bg-sunset-500 text-white text-sm rounded-full;
+        @apply px-3 py-1 bg-primary-500 text-white text-sm rounded-full;
     }
 }
