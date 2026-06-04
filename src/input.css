@@ -51,4 +51,5 @@
     .pill {
         @apply px-3 py-1 bg-primary-500 text-white text-sm rounded-full;
     }
+
 }

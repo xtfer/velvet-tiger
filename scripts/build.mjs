@@ -23,19 +23,26 @@ async function copyDir(src, dest) {
 }
 
 async function buildSite() {
-  // 1) Copy index.html into dist/index.html with rewritten asset paths
-  const indexSrc = path.join(root, 'index.html');
-  const indexDest = path.join(distDir, 'index.html');
-  let html = await fs.readFile(indexSrc, 'utf8');
-
-  // Rewrite asset paths for files that live inside dist when served as root
-  html = html
-    .replace(/href="dist\/style.css"/g, 'href="style.css"')
-    .replace(/src="dist\/components.js"/g, 'src="components.js"')
-    .replace(/src="dist\/main.js"/g, 'src="main.js"');
-
   await ensureDir(distDir);
-  await fs.writeFile(indexDest, html, 'utf8');
+
+  // 1) Copy all root HTML files into dist with rewritten asset paths
+  const rootEntries = await fs.readdir(root, { withFileTypes: true });
+  const htmlFiles = rootEntries.filter((entry) => entry.isFile() && entry.name.endsWith('.html'));
+
+  await Promise.all(
+    htmlFiles.map(async (entry) => {
+      const srcPath = path.join(root, entry.name);
+      const destPath = path.join(distDir, entry.name);
+      let html = await fs.readFile(srcPath, 'utf8');
+
+      html = html
+        .replace(/href="dist\/style.css"/g, 'href="style.css"')
+        .replace(/src="dist\/components.js"/g, 'src="components.js"')
+        .replace(/src="dist\/main.js"/g, 'src="main.js"');
+
+      await fs.writeFile(destPath, html, 'utf8');
+    })
+  );
 
   // 2) Copy images directory into dist/images (if it exists)
   const imagesSrc = path.join(root, 'images');

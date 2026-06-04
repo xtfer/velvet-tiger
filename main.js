@@ -1,24 +1,26 @@
 // Velvet Labs - Main JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerOffset = 80; // Account for fixed header
-                const elementPosition = targetSection.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+
+            if (!targetSection) {
+                return;
             }
+
+            e.preventDefault();
+            const headerOffset = 80;
+            const elementPosition = targetSection.offsetTop;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 
@@ -139,23 +141,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Insert mobile menu button
     const nav = document.querySelector('nav .flex');
-    if (nav) {
+    const desktopNav = document.querySelector('[data-desktop-nav]');
+
+    if (nav && desktopNav) {
         nav.appendChild(mobileMenuButton);
-        
+
+        const mobileLinks = Array.from(desktopNav.querySelectorAll('a'))
+            .map(link => {
+                const href = link.getAttribute('href') || '#';
+                const label = link.textContent.trim();
+                const currentPage = link.getAttribute('aria-current') === 'page';
+
+                return `
+                    <a href="${href}" class="block px-3 py-2 rounded-md transition-colors ${currentPage ? 'bg-primary-50 text-primary-700' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}">${label}</a>
+                `;
+            })
+            .join('');
+
         // Create mobile menu
         const mobileMenu = document.createElement('div');
         mobileMenu.className = 'md:hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg hidden';
         mobileMenu.innerHTML = `
             <div class="px-4 py-2 space-y-1">
-                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">About</a>
-                <a href="#capabilities" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">Capabilities</a>
-                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">Portfolio</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">Contact</a>
+                ${mobileLinks}
             </div>
         `;
-        
+
         document.querySelector('header').appendChild(mobileMenu);
-        
+
         // Toggle mobile menu
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');

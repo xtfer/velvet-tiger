@@ -1,0 +1,56 @@
+{
+  "name": "velvet",
+  "description": "",
+  "directory": "/Users/xtfer/working/velvet-tiger/velvet",
+  "skills": [
+    "automatic"
+  ],
+  "mcp_servers": [
+    "automatic"
+  ],
+  "providers": [],
+  "agents": [
+    "claude",
+    "opencode"
+  ],
+  "tools": [],
+  "created_at": "2026-02-27T00:45:08.767Z",
+  "updated_at": "2026-03-05T13:21:56.121674+00:00",
+  "last_activity": "2026-05-09T23:26:11.060920+00:00",
+  "file_rules": {
+    "_unified": [
+      "automatic-service"
+    ]
+  },
+  "instruction_mode": "unified",
+  "instruction_file_hashes": {
+    "AGENTS.md": "d465ee500912c881",
+    "CLAUDE.md": "30406ea523c53def"
+  },
+  "instructions_index_mode": false,
+  "skill_sources": {
+    "automatic": {
+      "source": "automatic/automatic-app",
+      "id": "automatic/automatic-app/automatic",
+      "kind": "bundled"
+    }
+  },
+  "skill_collections": {
+    "automatic": "automatic-skills"
+  },
+  "mcp_server_specs": {
+    "automatic": {
+      "type": "stdio",
+      "command": "/Applications/Automatic.app/Contents/MacOS/automatic",
+      "args": [
+        "mcp-serve"
+      ]
+    }
+  },
+  "resolved_rules": {
+    "automatic-service": {
+      "name": "Automatic",
+      "content": "# Working with the Automatic MCP Service\n\nThis project is managed by Automatic, a desktop hub that provides skills, memory, and MCP server configs to agents via an MCP interface. The Automatic MCP server is always available in this project.\n\n## Session Start\n\n1. Call `automatic_list_skills` to discover available skills. If any match the current task domain, call `automatic_read_skill` to load instructions and companion resources.\n2. Call `automatic_search_memories` with relevant keywords for this project to retrieve past learnings, conventions, and decisions.\n3. Call `automatic_read_project` with this project's name to understand the configured skills, MCP servers, agents, and directory.\n\n## During Work\n\n- **Skills** — Follow loaded skill instructions. Skills may include companion scripts, templates, or reference docs in their directory.\n- **MCP Servers** — Call `automatic_list_mcp_servers` to see what servers are registered. Call `automatic_sync_project` after configuration changes.\n- **Skill Discovery** — Call `automatic_search_skills` to find community skills on skills.sh when you need specialised guidance not covered by installed skills.\n\n## Memory\n\nUse the memory tools to persist and retrieve project-specific context across sessions:\n\n- **Store** meaningful learnings: architectural decisions, resolved gotchas, user preferences, environment quirks, naming conventions.\n- **Search** before making assumptions — previous sessions may have captured relevant context.\n- **Key format** — Use descriptive, hierarchical keys (e.g. `conventions/naming`, `setup/database`, `decisions/auth-approach`).\n- **Source** — Set the `source` parameter when storing memory so the origin is traceable.\n\n## Session End\n\nBefore finishing a session, call `automatic_store_memory` to capture any new project-specific rules, pitfalls, setup steps, or decisions discovered during the session. This prevents knowledge loss across sessions.\n"
+    }
+  }
+}
