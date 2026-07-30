@@ -1,53 +1,55 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        "./*.html",
-        "./dist/*.html",
-        "./components.js",
-        "./main.js",
-        "./src/**/*.{html,js}"
-    ],
+  content: [
+    "./*.html",
+    "./dist/*.html",
+    "./components.js",
+    "./main.js",
+    "./src/**/*.{html,js}"
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
+        sans: ['"Source Sans 3"', 'sans-serif'],
       },
       colors: {
-          primary: {
-              50: '#f8fafc',
-              100: '#f1f5f9',
-              200: '#e2e8f0',
-              300: '#cbd5e1',
-              400: '#94a3b8',
-              500: '#64748b',
-              600: '#475569',
-              700: '#334155',
-              800: '#1e293b',
-              900: '#0f172a',
-          },
-        secondary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+        paper: {
+          DEFAULT: '#F7F6F3',
+          muted: '#EFEDE8',
+          border: '#E4E1DA',
+        },
+        ink: {
+          DEFAULT: '#141414',
+          muted: '#5C5A55',
+          faint: '#8A8780',
+        },
+        accent: {
+          DEFAULT: '#0E4D4A',
+          hover: '#0A3B39',
+          soft: '#E6F0EF',
+        },
+        primary: {
+          50: '#E6F0EF',
+          100: '#C2DBD9',
+          200: '#8FBAB7',
+          300: '#5C9894',
+          400: '#2E6F6C',
+          500: '#0E4D4A',
+          600: '#0A3B39',
+          700: '#082E2C',
+          800: '#052120',
+          900: '#031615',
         },
       },
-      backgroundImage: {
-          'gradient-primary': 'linear-gradient(135deg, #1e293b 0%, #3b82f6 100%)',
-          'gradient-primary-soft': 'linear-gradient(135deg, #e2e8f0 0%, #bfdbfe 100%)',
-          'gradient-secondary': 'linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)',
-          'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      borderRadius: {
+        sm: '4px',
+        DEFAULT: '6px',
+        md: '8px',
       },
       animation: {
-        'fade-in': 'fadeIn 1s ease-in-out',
-        'fade-up': 'fadeUp 1s ease-in-out',
-        'float': 'float 6s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.8s ease-out',
+        'fade-up': 'fadeUp 0.8s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -55,14 +57,10 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
-      }
+      },
     },
   },
   plugins: [

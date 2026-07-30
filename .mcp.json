@@ -4,7 +4,7 @@
       "args": [
         "mcp-serve"
       ],
-      "command": "/Applications/Automatic.app/Contents/MacOS/automatic",
+      "command": "/usr/local/bin/automatic",
       "env": {
         "AUTOMATIC_PROJECT": "velvet"
       }

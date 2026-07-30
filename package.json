@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run prebuild && npm run dev:copy && npm run css:build && concurrently \"npm run css:watch\" \"npm run js:watch\" \"npm run html:watch\" \"npm run images:watch\" \"npm run serve\"",
     "start": "npm run dev",
-    "serve": "npx live-server dist --port=8080 --host=localhost --open=/ --wait=200",
+    "serve": "node node_modules/live-server/live-server.js dist --port=8080 --host=localhost --open=/ --wait=200",
     "prebuild": "mkdir -p dist",
     "dev:copy": "node scripts/build.mjs",
     "build": "npm run css:build && npm run js:build && node scripts/build.mjs",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^9.2.1",
     "esbuild": "^0.25.10",
     "live-server": "^1.2.0",

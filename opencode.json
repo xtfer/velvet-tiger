@@ -3,7 +3,7 @@
   "mcp": {
     "automatic": {
       "command": [
-        "/Applications/Automatic.app/Contents/MacOS/automatic",
+        "/usr/local/bin/automatic",
         "mcp-serve"
       ],
       "environment": {

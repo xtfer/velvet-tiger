@@ -6,50 +6,65 @@
     @apply max-h-full object-contain;
 }
 
-#hero {
-    @apply bg-primary-50 bg-cover bg-center bg-no-repeat bg-fixed relative;
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-paper text-ink font-sans antialiased;
+    }
+
+    ::selection {
+        @apply bg-accent-soft text-ink;
+    }
 }
 
-/* Custom component classes using @apply */
 @layer components {
     .btn-primary {
-        @apply bg-primary-500 text-white px-8 py-3 rounded-lg hover:bg-primary-600 hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium hover:border-white;
+        @apply inline-flex items-center justify-center bg-accent text-white px-7 py-3 rounded-md
+               text-sm font-medium tracking-wide
+               hover:bg-accent-hover transition-colors duration-300;
     }
 
     .btn-secondary {
-        @apply border-2 border-white text-gray-700 bg-white px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-primary-400 hover:scale-105 transition-all duration-300 font-medium;
+        @apply inline-flex items-center gap-2 text-white text-sm font-medium tracking-wide
+               border-b border-white/40 pb-0.5
+               hover:border-white transition-colors duration-300;
     }
 
-    .card-hover {
-        @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+    .btn-link {
+        @apply inline-flex items-center gap-2 text-accent text-sm font-medium
+               border-b border-accent/30 pb-0.5
+               hover:border-accent transition-colors duration-300;
     }
 
-    .text-gradient {
-        @apply text-primary-600 hover:text-primary-500 transition-all duration-300;
+    .nav-link {
+        @apply text-ink-muted hover:text-ink text-sm font-medium tracking-wide transition-colors duration-300;
     }
 
     .nav-link-active {
-        @apply text-primary-600 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-all duration-300 relative;
+        @apply text-accent text-sm font-medium tracking-wide;
     }
 
     .form-input {
-        @apply block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all bg-white/90 backdrop-blur-sm;
+        @apply block w-full px-4 py-3 bg-white border border-paper-border rounded-md
+               text-ink placeholder:text-ink-faint
+               focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent
+               transition-all duration-200;
     }
 
-    .icon-block {
-        @apply w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center mb-4;
+    .section-rule {
+        @apply border-t border-paper-border;
     }
 
-    .card {
-        @apply bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow animate-fade-up;
+    .tag-quiet {
+        @apply text-sm text-ink-muted;
     }
 
-    .card-inner {
-        @apply p-6 border-l-4 border-primary-500 h-full flex flex-col;
+    .link-underline {
+        @apply relative inline-flex items-center gap-1 text-ink font-medium text-sm
+               after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-accent
+               after:transition-all after:duration-300 hover:after:w-full hover:text-accent;
     }
-
-    .pill {
-        @apply px-3 py-1 bg-primary-500 text-white text-sm rounded-full;
-    }
-
 }

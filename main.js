@@ -1,7 +1,7 @@
-// Velvet Labs - Main JavaScript
+// Velvet Tiger — Main JavaScript
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for in-page navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             e.preventDefault();
-            const headerOffset = 80;
+            const headerOffset = 72;
             const elementPosition = targetSection.offsetTop;
             const offsetPosition = elementPosition - headerOffset;
 
@@ -24,38 +24,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Header border on scroll
+    const siteHeader = document.getElementById('site-header');
+    if (siteHeader) {
+        const updateHeader = () => {
+            if (window.scrollY > 24) {
+                siteHeader.classList.add('border-paper-border');
+                siteHeader.classList.remove('border-transparent');
+            } else {
+                siteHeader.classList.remove('border-paper-border');
+                siteHeader.classList.add('border-transparent');
+            }
+        };
+        updateHeader();
+        window.addEventListener('scroll', updateHeader, { passive: true });
+    }
+
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
     const formMessages = document.getElementById('form-messages');
-    
+
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
+
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
             const message = formData.get('message');
-            
-            // Basic validation
+
             if (!name || !email || !message) {
                 showMessage('Please fill in all required fields.', 'error');
                 return;
             }
-            
+
             if (!isValidEmail(email)) {
                 showMessage('Please enter a valid email address.', 'error');
                 return;
             }
-            
-            // Show loading state
+
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
-            
-            // Submit form via fetch (fallback to regular form submission if needed)
+
             fetch(contactForm.action, {
                 method: 'POST',
                 body: formData,
@@ -71,75 +83,71 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Form submission failed');
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 showMessage('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
             })
             .finally(() => {
-                // Reset button state
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
             });
         });
     }
-    
-    // Show form status messages
+
     function showMessage(message, type) {
         if (formMessages) {
             formMessages.innerHTML = `
-                <div class="p-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}">
+                <div class="p-4 rounded-md text-sm ${type === 'success' ? 'bg-accent-soft text-accent' : 'bg-red-50 text-red-800'}">
                     ${message}
                 </div>
             `;
             formMessages.classList.remove('hidden');
-            
-            // Auto-hide after 5 seconds
+
             setTimeout(() => {
                 formMessages.classList.add('hidden');
             }, 5000);
         }
     }
-    
-    // Email validation helper
+
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
-    
-    // Add scroll-based animations
+
+    // Scroll-based fade-up animations
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -40px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
-    // Observe elements with fade-up animation
+
     const animateElements = document.querySelectorAll('.animate-fade-up');
     animateElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
         observer.observe(el);
     });
-    
-    // Add mobile menu toggle (if needed for smaller screens)
+
+    // Mobile menu
     const mobileMenuButton = document.createElement('button');
     mobileMenuButton.innerHTML = `
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
     `;
-    mobileMenuButton.className = 'md:hidden p-2 rounded-md hover:bg-gray-100';
+    mobileMenuButton.className = 'md:hidden p-2 -mr-2 rounded-md text-ink hover:bg-paper-muted transition-colors';
     mobileMenuButton.setAttribute('aria-label', 'Toggle mobile menu');
-    
-    // Insert mobile menu button
+    mobileMenuButton.setAttribute('aria-expanded', 'false');
+
     const nav = document.querySelector('nav .flex');
     const desktopNav = document.querySelector('[data-desktop-nav]');
 
@@ -153,65 +161,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 const currentPage = link.getAttribute('aria-current') === 'page';
 
                 return `
-                    <a href="${href}" class="block px-3 py-2 rounded-md transition-colors ${currentPage ? 'bg-primary-50 text-primary-700' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}">${label}</a>
+                    <a href="${href}" class="block px-1 py-3 border-b border-paper-border text-base font-medium transition-colors ${currentPage ? 'text-accent' : 'text-ink hover:text-accent'}">${label}</a>
                 `;
             })
             .join('');
 
-        // Create mobile menu
         const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'md:hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg hidden';
+        mobileMenu.id = 'mobile-menu';
+        mobileMenu.className = 'md:hidden absolute top-16 left-0 right-0 bg-paper border-b border-paper-border hidden';
         mobileMenu.innerHTML = `
-            <div class="px-4 py-2 space-y-1">
+            <div class="px-5 sm:px-8 py-2">
                 ${mobileLinks}
             </div>
         `;
 
         document.querySelector('header').appendChild(mobileMenu);
 
-        // Toggle mobile menu
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        };
+
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+            }
         });
-        
-        // Close mobile menu when clicking a link
+
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+            link.addEventListener('click', closeMenu);
         });
     }
-    
-    // Add subtle parallax effect to hero section (optional)
-    // let ticking = false;
-    
-    // function updateParallax() {
-    //     const scrolled = window.pageYOffset;
-    //     const heroSection = document.getElementById('hero');
-    //     
-    //     if (heroSection && scrolled < window.innerHeight) {
-    //         const rate = scrolled * -0.5;
-    //         heroSection.style.transform = `translateY(${rate}px)`;
-    //     }
-    //     
-    //     ticking = false;
-    // }
-    
-    // window.addEventListener('scroll', () => {
-    //     if (!ticking) {
-    //         requestAnimationFrame(updateParallax);
-    //         ticking = true;
-    //     }
-    // });
 });
 
-// Add keyboard accessibility improvements
 document.addEventListener('keydown', function(e) {
-    // ESC key closes mobile menu
     if (e.key === 'Escape') {
-        const mobileMenu = document.querySelector('.md\\:hidden.absolute');
+        const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
             mobileMenu.classList.add('hidden');
+            const button = document.querySelector('button[aria-label="Toggle mobile menu"]');
+            if (button) button.setAttribute('aria-expanded', 'false');
         }
     }
 });
