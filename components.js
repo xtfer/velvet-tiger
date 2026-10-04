@@ -216,7 +216,7 @@ class FormInput extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['label', 'type', 'name', 'required', 'rows'];
+        return ['label', 'type', 'name', 'required', 'rows', 'placeholder'];
     }
 
     connectedCallback() {
@@ -233,14 +233,15 @@ class FormInput extends HTMLElement {
         const name = this.getAttribute('name') || '';
         const required = this.hasAttribute('required') ? 'required' : '';
         const rows = this.getAttribute('rows');
+        const placeholder = this.getAttribute('placeholder') || '';
         const id = `form-${name}`;
 
         let inputElement;
         if (type === 'textarea') {
-            inputElement = `<textarea id="${id}" name="${name}" rows="${rows || 6}" ${required}
+            inputElement = `<textarea id="${id}" name="${name}" rows="${rows || 6}" placeholder="${placeholder}" ${required}
                            class="form-input"></textarea>`;
         } else {
-            inputElement = `<input type="${type}" id="${id}" name="${name}" ${required}
+            inputElement = `<input type="${type}" id="${id}" name="${name}" placeholder="${placeholder}" ${required}
                            class="form-input">`;
         }
 
@@ -250,6 +251,7 @@ class FormInput extends HTMLElement {
                     ${label}${required ? ' <span class="text-accent">*</span>' : ''}
                 </label>
                 ${inputElement}
+                <p data-error-for="${name}" class="hidden mt-2 text-sm text-red-800"></p>
             </div>
         `;
     }

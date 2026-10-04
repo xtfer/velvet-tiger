@@ -40,26 +40,38 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', updateHeader, { passive: true });
     }
 
-    // Contact form handling
+    // Contact form handling (submits to Kelpie CRM as JSON)
     const contactForm = document.getElementById('contact-form');
     const formMessages = document.getElementById('form-messages');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            clearErrors();
 
+            // Checkboxes sharing a name are joined as "id1,id2"; empty answers are left out
             const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-
-            if (!name || !email || !message) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
+            const answers = {};
+            for (const key of new Set(formData.keys())) {
+                const value = formData.getAll(key).map(v => String(v).trim()).filter(Boolean).join(',');
+                if (value) answers[key] = value;
             }
 
-            if (!isValidEmail(email)) {
-                showMessage('Please enter a valid email address.', 'error');
+            let valid = true;
+            contactForm.querySelectorAll('input[required], textarea[required], select[required]').forEach(field => {
+                if (!answers[field.name]) {
+                    showFieldError(field.name, 'This field is required.');
+                    valid = false;
+                }
+            });
+            contactForm.querySelectorAll('input[type="email"]').forEach(field => {
+                if (answers[field.name] && !isValidEmail(answers[field.name])) {
+                    showFieldError(field.name, 'Please enter a valid email address.');
+                    valid = false;
+                }
+            });
+            if (!valid) {
+                showMessage('Please check the highlighted fields.');
                 return;
             }
 
@@ -70,21 +82,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             fetch(contactForm.action, {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ answers })
             })
-            .then(response => {
-                if (response.ok) {
-                    showMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Form submission failed');
+            .then(response => response.json().catch(() => ({})).then(data => {
+                if (response.status === 201) {
+                    const thanks = document.createElement('p');
+                    thanks.className = 'text-lg text-ink';
+                    thanks.setAttribute('role', 'status');
+                    thanks.textContent = data.thank_you_message || 'Thanks. We will be in touch.';
+                    contactForm.replaceWith(thanks);
+                    return;
                 }
-            })
+
+                const error = data.error || {};
+                (error.details || []).forEach(detail => {
+                    showFieldError(String(detail.field || '').replace(/^answers\./, ''), detail.message);
+                });
+                showMessage(error.message || 'Sorry, there was an error sending your message. Please try again.');
+            }))
             .catch(() => {
-                showMessage('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+                showMessage('Sorry, there was an error sending your message. Please try again.');
             })
             .finally(() => {
                 submitButton.textContent = originalText;
@@ -93,18 +111,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function showMessage(message, type) {
+    function showMessage(message) {
         if (formMessages) {
-            formMessages.innerHTML = `
-                <div class="p-4 rounded-md text-sm ${type === 'success' ? 'bg-accent-soft text-accent' : 'bg-red-50 text-red-800'}">
-                    ${message}
-                </div>
-            `;
+            const box = document.createElement('div');
+            box.className = 'p-4 rounded-md text-sm bg-red-50 text-red-800';
+            box.textContent = message;
+            formMessages.replaceChildren(box);
             formMessages.classList.remove('hidden');
+        }
+    }
 
-            setTimeout(() => {
-                formMessages.classList.add('hidden');
-            }, 5000);
+    function showFieldError(name, message) {
+        const el = Array.from(contactForm.querySelectorAll('[data-error-for]'))
+            .find(node => node.dataset.errorFor === name);
+        if (el) {
+            el.textContent = message;
+            el.classList.remove('hidden');
+        }
+    }
+
+    function clearErrors() {
+        contactForm.querySelectorAll('[data-error-for]').forEach(el => {
+            el.textContent = '';
+            el.classList.add('hidden');
+        });
+        if (formMessages) {
+            formMessages.replaceChildren();
+            formMessages.classList.add('hidden');
         }
     }
 

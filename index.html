@@ -324,21 +324,31 @@
                         </section-header>
                     </div>
                     <div class="lg:col-span-7">
-                        <form id="contact-form" action="https://formsubmit.co/velvettigerinvestments@gmail.com" method="POST" class="flex flex-col gap-5">
-                            <input type="hidden" name="_subject" value="New contact from Velvet Tiger site">
+                        <div id="form-messages" class="mb-5 hidden" role="alert"></div>
 
-                            <form-input label="Name" type="text" name="name" required></form-input>
-                            <form-input label="Email" type="email" name="email" required></form-input>
-                            <form-input label="Message" type="textarea" name="message" rows="6" required></form-input>
+                        <form id="contact-form" action="https://au.kelpiecrm.com/v1/public/workspaces/ws_01M3B2FP0GH19RC02SXSAAWQY8/forms/lGROoP2k8HU9RiTcbg0dyPowNDGXiHNSMN5oGFDyT_4/submit" method="POST" class="flex flex-col gap-5" novalidate>
+                            <form-input label="Name" type="text" name="ff_01M3B2FP2RZPE4391YAQE118AW" placeholder="Your name" required></form-input>
+                            <form-input label="Email" type="email" name="ff_01M3B2FP2RYXB71NZMXSY9CQE7" placeholder="you@company.com" required></form-input>
+                            <form-input label="Message" type="textarea" name="ff_01M3B2FP2RTT4CP0KHJYGCSYZQ" placeholder="How can we help?" rows="6"></form-input>
+
+                            <fieldset>
+                                <legend class="block text-sm font-medium text-ink mb-2">
+                                    Please tell us how we can contact you about your enquiry. <span class="text-accent">*</span>
+                                </legend>
+                                <label class="flex items-start gap-3 text-sm text-ink-muted">
+                                    <input type="checkbox" name="ff_01M3B2FP2RF9XT4Q6PYYFJ9DEN" value="cnp_01M3B2FP1ZZ883Q4B62SPGMXVJ" required
+                                           class="mt-0.5 h-4 w-4 shrink-0 rounded border-paper-border accent-accent">
+                                    <span>I consent to Velvet Tiger contacting me and retaining my information for the purpose of handling my enquiry.</span>
+                                </label>
+                                <p data-error-for="ff_01M3B2FP2RF9XT4Q6PYYFJ9DEN" class="hidden mt-2 text-sm text-red-800"></p>
+                            </fieldset>
 
                             <div>
-                                <button type="submit" class="btn-primary">
+                                <button type="submit" class="btn-primary disabled:opacity-60 disabled:cursor-not-allowed">
                                     Send message
                                 </button>
                             </div>
                         </form>
-
-                        <div id="form-messages" class="mt-4 hidden"></div>
                     </div>
                 </div>
             </div>
