@@ -40,6 +40,22 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', updateHeader, { passive: true });
     }
 
+    // Picard download links: point at the latest GitHub release's .dmg, keeping the hardcoded link as a fallback
+    const picardDownloads = document.querySelectorAll('[data-picard-download]');
+    if (picardDownloads.length) {
+        fetch('https://api.github.com/repos/velvet-tiger/picard/releases/latest')
+            .then(response => response.ok ? response.json() : Promise.reject(response.status))
+            .then(release => {
+                const dmg = (release.assets || []).find(asset => asset.name.endsWith('.dmg'));
+                if (!dmg) return;
+                picardDownloads.forEach(link => { link.href = dmg.browser_download_url; });
+                document.querySelectorAll('[data-picard-version]').forEach(el => {
+                    el.textContent = release.tag_name.replace(/^v/, '');
+                });
+            })
+            .catch(() => {});
+    }
+
     // Contact form handling (submits to Kelpie CRM as JSON)
     const contactForm = document.getElementById('contact-form');
     const formMessages = document.getElementById('form-messages');

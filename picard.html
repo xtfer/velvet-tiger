@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picard – Free disk space for developers on macOS</title>
+    <meta name="description" content="Picard is a free, open source macOS menu bar app that watches your free disk space and safely clears stale node_modules, Cargo targets, Python virtualenvs, build output, and merged git worktrees when a drive runs low.">
+    <meta name="keywords" content="Picard, macOS disk space, menu bar app, node_modules cleanup, cargo clean, git worktrees, developer tools, Velvet Tiger">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Christopher Skene">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velvettiger.com.au/picard.html">
+    <meta property="og:title" content="Picard – Free disk space for developers on macOS">
+    <meta property="og:description" content="A macOS menu bar app that watches free disk space and safely clears build output and finished work when a drive runs low.">
+    <meta property="og:image" content="https://velvettiger.com.au/og-image.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://velvettiger.com.au/picard.html">
+    <meta property="twitter:title" content="Picard – Free disk space for developers on macOS">
+    <meta property="twitter:description" content="A macOS menu bar app that watches free disk space and safely clears build output and finished work when a drive runs low.">
+    <meta property="twitter:image" content="https://velvettiger.com.au/og-image.png">
+
+    <meta name="theme-color" content="#F7F6F3">
+    <link rel="icon" type="image/svg+xml" href="/images/picard.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-paper/80 backdrop-blur-md border-b border-transparent">
+        <nav class="max-w-6xl mx-auto px-5 sm:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="font-display text-lg font-semibold tracking-tight text-ink hover:text-accent transition-colors">
+                    Velvet Tiger
+                </a>
+                <div class="hidden md:flex items-center gap-8" data-desktop-nav>
+                    <a href="/index.html#about" class="nav-link">About</a>
+                    <a href="/projects.html" aria-current="page" class="nav-link-active">Projects</a>
+                    <a href="/services.html" class="nav-link">Services</a>
+                    <a href="/index.html#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="pt-32 pb-16 md:pt-40 md:pb-24">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <a href="/projects.html" class="text-sm text-ink-faint hover:text-accent transition-colors">← Projects</a>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                    <div class="md:col-span-8 animate-fade-up">
+                        <p class="text-sm font-medium tracking-widest uppercase text-accent mb-4">macOS menu bar app · Stardate 2026.10</p>
+                        <h1 class="font-display text-5xl md:text-6xl font-semibold tracking-tight text-ink mb-6">Picard</h1>
+                        <p class="text-xl md:text-2xl text-ink leading-snug mb-5 max-w-2xl">
+                            Your disk has been assimilated. Picard takes it back.
+                        </p>
+                        <p class="text-lg text-ink-muted leading-relaxed mb-10 max-w-2xl">
+                            Your coding agents are a collective: tireless, efficient, and utterly indifferent to how much disk they consume. Picard watches free space on your drives and, when one runs low, clears out what they leave behind: stale <code class="text-ink">node_modules</code>, Cargo <code class="text-ink">target/</code> folders, Python virtualenvs, ignored build folders, and merged git worktrees. Nothing you still need.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+                            <a href="https://github.com/velvet-tiger/picard/releases/download/v0.2.0/Picard_0.2.0_aarch64.dmg" class="btn-primary" data-picard-download>
+                                Engage: download for macOS
+                            </a>
+                            <a href="https://github.com/velvet-tiger/picard" class="btn-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+                        </div>
+                        <p class="mt-5 text-sm text-ink-faint">
+                            Version <span data-picard-version>0.2.0</span> · Apple Silicon · Free and open source (MIT)
+                        </p>
+                    </div>
+                    <div class="md:col-span-4 flex justify-center md:justify-end animate-fade-in">
+                        <img src="/images/picard.svg" alt="Picard app icon: a free-space gauge above a drive" class="w-48 h-48 md:w-64 md:h-64">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What it cleans -->
+        <section class="py-16 md:py-24 bg-paper-muted">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <section-header
+                    title="What it cleans"
+                    subtitle="The debris field. Picard only works inside the folders you choose, such as ~/working, and everything it removes can be rebuilt.">
+                </section-header>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Stale node_modules</h3>
+                        <p class="text-ink-muted leading-relaxed">From projects you haven't touched in a while. Optionally prunes the npm and pnpm caches too.</p>
+                    </div>
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Cargo targets</h3>
+                        <p class="text-ink-muted leading-relaxed">The <code>target/</code> folder next to a <code>Cargo.toml</code>, often the biggest folder on a Rust developer's disk.</p>
+                    </div>
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Python virtualenvs</h3>
+                        <p class="text-ink-muted leading-relaxed"><code>.venv</code> and <code>venv</code> folders in idle Python projects.</p>
+                    </div>
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Build output</h3>
+                        <p class="text-ink-muted leading-relaxed"><code>dist</code>, <code>build</code>, <code>.next</code> and others, but only when git ignores the folder and tracks nothing in it.</p>
+                    </div>
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Merged git worktrees</h3>
+                        <p class="text-ink-muted leading-relaxed">Clean, unlocked worktrees whose commits are already in <code>main</code> or pushed. Branches are never deleted.</p>
+                    </div>
+                    <div class="section-rule pt-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Tool caches and your scripts</h3>
+                        <p class="text-ink-muted leading-relaxed">Ask uv, Homebrew, bun and the iOS Simulator to prune their own caches, or run any cleanup script you add, like a Docker prune.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Built for agent workflows -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <div class="md:col-span-5">
+                        <p class="text-sm font-medium tracking-widest uppercase text-accent mb-3">Built for agentic coding</p>
+                        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-5">The agents have been busy. Picard cleans up after the collective.</h2>
+                        <blockquote class="border-l-2 border-accent pl-5 text-ink-muted italic">
+                            Captain's log, supplemental. Free space on the startup disk has fallen to two percent. Fourteen abandoned worktrees detected. Most have already merged.
+                        </blockquote>
+                    </div>
+                    <div class="md:col-span-7 text-lg text-ink-muted leading-relaxed space-y-5">
+                        <p>
+                            Coding agents spin up a worktree per task, each with its own dependencies and build output, and move on to the next one without looking back. They pile up fast. Picard removes the ones that are merged and finished, and leaves alone any that a running process, such as an open Claude Code session, is still using.
+                        </p>
+                        <p>
+                            Tools that sync agent config, like <a href="https://tryautomatic.app" class="text-ink underline decoration-paper-border underline-offset-4 hover:decoration-accent" target="_blank" rel="noopener noreferrer">Automatic</a>, rewrite files such as <code class="text-ink">AGENTS.md</code>, <code class="text-ink">CLAUDE.md</code> and <code class="text-ink">.mcp.json</code> on every sync. Picard doesn't count those changes as work, so an idle project still looks idle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety -->
+        <section class="py-16 md:py-24 bg-paper-muted">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <section-header
+                    title="The Prime Directive"
+                    subtitle="Picard does not interfere with work in progress. These rules always hold.">
+                </section-header>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-ink-muted max-w-5xl">
+                    <service-item>Nothing outside your chosen folders, and symlinks are never followed out of them</service-item>
+                    <service-item>No worktree with uncommitted or untracked changes, or unpushed commits</service-item>
+                    <service-item>No worktree that holds another checkout, such as a Claude Code worktree</service-item>
+                    <service-item>Git branches are never deleted</service-item>
+                    <service-item>Any folder you mark as ignored, in any mode</service-item>
+                    <service-item>Every item is checked again just before it is removed</service-item>
+                    <service-item>Every removal is logged, and only one cleanup runs at a time</service-item>
+                    <service-item>No telemetry: the only network call is an update check you start</service-item>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Modes -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <section-header
+                    title="Your orders, Captain"
+                    subtitle="Picard lives only in the menu bar. No Dock icon, no main window. It never changes modes by itself.">
+                </section-header>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="border-l-2 border-accent pl-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Ask <span class="text-sm font-sans font-normal text-ink-faint">(default)</span></h3>
+                        <p class="text-ink-muted leading-relaxed">Picard reports to the bridge when a drive is low and how much it can free. Review the list, untick anything you want to keep, then give the order.</p>
+                    </div>
+                    <div class="border-l-2 border-paper-border pl-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Auto</h3>
+                        <p class="text-ink-muted leading-relaxed">Make it so. Picard cleans straight away and tells you how much space it freed.</p>
+                    </div>
+                    <div class="border-l-2 border-paper-border pl-6">
+                        <h3 class="font-display text-lg font-semibold text-ink mb-2">Off</h3>
+                        <p class="text-ink-muted leading-relaxed">Hold position. Picard just shows free space for each drive.</p>
+                    </div>
+                </div>
+                <p class="mt-10 text-ink-muted max-w-3xl">
+                    <span class="text-ink font-medium">Daily long-range scan:</span>
+                    optionally scan once a day at a set time, even when space is fine. Picard watches every drive that holds one of your folders, external drives included, and each drive can have its own threshold.
+                </p>
+            </div>
+        </section>
+
+        <!-- Install -->
+        <section id="download" class="py-16 md:py-24 bg-paper-muted">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <div class="md:col-span-5">
+                        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-5">Bring Picard aboard</h2>
+                        <p class="text-ink-muted leading-relaxed mb-8">Requires a Mac with Apple Silicon.</p>
+                        <a href="https://github.com/velvet-tiger/picard/releases/download/v0.2.0/Picard_0.2.0_aarch64.dmg" class="btn-primary" data-picard-download>
+                            Download .dmg
+                        </a>
+                        <ul class="mt-6 flex flex-col gap-2 text-sm">
+                            <li><a href="https://github.com/velvet-tiger/picard/releases" class="link-underline" target="_blank" rel="noopener noreferrer">All releases and changelog →</a></li>
+                            <li><a href="https://github.com/velvet-tiger/picard#readme" class="link-underline" target="_blank" rel="noopener noreferrer">Full documentation →</a></li>
+                            <li><a href="https://github.com/velvet-tiger/picard/issues" class="link-underline" target="_blank" rel="noopener noreferrer">Report an issue →</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-7">
+                        <ol class="flex flex-col gap-6">
+                            <li class="flex gap-5">
+                                <span class="font-display text-2xl font-semibold text-accent w-6 shrink-0">1</span>
+                                <p class="text-ink-muted leading-relaxed pt-1">Open the <code class="text-ink">.dmg</code> and drag Picard to Applications.</p>
+                            </li>
+                            <li class="flex gap-5">
+                                <span class="font-display text-2xl font-semibold text-accent w-6 shrink-0">2</span>
+                                <p class="text-ink-muted leading-relaxed pt-1">Open Picard. When macOS asks whether it may send notifications, allow it, or the low-space alerts won't appear.</p>
+                            </li>
+                            <li class="flex gap-5">
+                                <span class="font-display text-2xl font-semibold text-accent w-6 shrink-0">3</span>
+                                <p class="text-ink-muted leading-relaxed pt-1">Choose <span class="text-ink font-medium">Settings…</span> from the menu bar icon, add the folders you keep projects in, and turn on start at login.</p>
+                            </li>
+                        </ol>
+
+                        <div class="mt-10">
+                            <h3 class="font-display text-lg font-semibold text-ink mb-3">Prefer the terminal?</h3>
+                            <p class="text-ink-muted leading-relaxed mb-4">The app binary also works as a command-line tool. <code class="text-ink">scan</code> lists what would be removed and changes nothing.</p>
+                            <pre class="bg-ink text-paper text-sm rounded-md p-4 overflow-x-auto"><code>/Applications/Picard.app/Contents/MacOS/picard scan
+/Applications/Picard.app/Contents/MacOS/picard run --yes</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+                <img src="/images/picard.svg" alt="" class="w-16 h-16 mx-auto mb-6">
+                <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">Resistance is not futile.</h2>
+                <p class="text-ink-muted mb-8">Take your disk back. Free and open source, from Velvet Tiger.</p>
+                <a href="https://github.com/velvet-tiger/picard/releases/download/v0.2.0/Picard_0.2.0_aarch64.dmg" class="btn-primary" data-picard-download>Make it so</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-paper-border py-10">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <p class="font-display text-sm font-semibold text-ink">Velvet Tiger</p>
+            <p class="text-sm text-ink-faint">&copy; 2026 Velvet Tiger Investments</p>
+        </div>
+        <p class="max-w-6xl mx-auto px-5 sm:px-8 mt-6 text-xs text-ink-faint leading-relaxed">
+            Picard the app has no connection to Star Trek, Paramount, or CBS, and is not endorsed by them. Star Trek and related names are trademarks of their respective owners. Jean-Luc Picard is awesome, and this page is simply an affectionate homage.
+        </p>
+    </footer>
+
+    <script src="/components.js"></script>
+    <script defer src="/main.js"></script>
+</body>
+</html>
